@@ -1,0 +1,9 @@
+/home/anti-depressants/xanax
+/home/heart/lipitor
+/home/heart/atorvastatin
+/home/heart/lipitor
+/home/heart/heart
+/drugs/nasal/flonase
+/drugs/topical
+/drugs/routes/oral/tablets
+/drugs/routes/nasal/flonase

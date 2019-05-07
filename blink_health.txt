@@ -1,0 +1,145 @@
+urls = [
+    "/home/anti-depressants/xanax",
+    "/home/heart/lipitor",
+    "/home/heart/atorvastatin",
+    "/home/heart/lipitor",
+    "/home/heart/heart",
+    "/drugs/nasal/flonase",
+    "/drugs/topical",
+    "/drugs/routes/oral/tablets",
+    "/drugs/routes/nasal/flonase",
+]
+# { "home": { "anti-depressants" : {"xanax": {}}, "heart": {}}}
+
+# 
+# Your previous Plain Text content is preserved below:
+# 
+# Write code to parse urls into a sitemap tree structure and display it as text. For example, the following urls will result in this printed structure.
+# 
+# Milestones:
+# 1. Parse routes into data structure
+# 2. Print data structure as simply as possible to check parsing
+# 3. Format text output like shown in below
+# 
+# Input:
+# [
+#     "/home/anti-depressants/xanax",
+#     "/home/heart/lipitor",
+#     "/home/heart/atorvastatin",
+#     "/home/heart/lipitor",
+#     "/home/heart/heart",
+#     "/drugs/nasal/flonase",
+#     "/drugs/topical",
+#     "/drugs/routes/oral/tablets",
+#     "/drugs/routes/nasal/flonase",
+# ]
+# 
+# Output:
+# - home
+#     - anti-depressants
+#         - xanax
+#     - heart
+#         - lipitor
+#         - atorvastatin
+#         - heart
+# - drugs
+#     - nasal
+#         - flonase
+#     - topical
+#     - routes
+#         - oral
+#             - tablets
+#         - nasal
+#             - flonase
+# 
+# 
+# { "home": { "anti-depressants" : {"xanax": {}}, "heart": {}}}
+# 
+# joel@blinkhealth.com
+
+#def hash_function(key):
+#    return true
+      
+## {}, ['test', 'test3'] => { "test": {}} ^^ { "test": { "test3": {}}}
+##    {}, ['test3'] => { "test3": {}} ^^
+def rec_insert(root, keys):
+
+    if not keys:  
+        return   
+    key = keys[0]
+    root[key] = keys[1:]
+
+    #root.setdefault(key,[])
+    #root.add(keys[1:])
+    
+    #size += 1
+    rec_insert(root, keys[1:])
+
+
+#def print_nested(ident, root , keys):
+#    if not keys:
+#        return
+#
+#    key =keys[0]
+#    print(ident+"- "+key)
+#    root[key] = keys[1:]
+#    ident += " "*4
+#    print_nested(ident, root, keys[1:])
+
+#def print_nested(ident, root):
+#    if not root[key]:
+#        return
+#
+#    key =root[key][0]
+#    print(ident+"- "+key)
+#    root[key] = root[key][1:]
+#    ident += " "*4
+#    print_nested(ident, root, root[key][1:])    
+
+
+def print_nested(ident, root):
+    print(root)
+    print("Miao")
+    #if not root[]:
+    #    return
+    #for key in root:
+    #key = root[key][0]
+    key0 = next(iter(root))
+    print(key0)
+    print(ident+"- "+key0)
+    #root = root[key][1:]
+    root = root[key0]
+    ident += " "*4
+    print(root)
+    print_nested(ident, root)  
+
+root = {}
+ident = ''
+#rec_insert(root, ['test', 'test1', 'test2', 'test3'])
+#rec_insert(root, ['test', 'daniel1','daniel2','daniel3'])
+rec_insert(root, ['test', 'test1'])
+rec_insert(root, ['test', 'daniel1'])
+print(root)
+print("nextPrint")
+#print_nested(ident ,root, ['test', 'test1', 'test2', 'test3'])
+print_nested(ident, root)
+
+
+
+print("Daniel Miao ---2")  
+
+ident = ''
+whole_root = []
+def read_output(urls):
+    dict_output = {}
+    for line in urls:
+        root = {}
+        splitLine = line.split("/")
+
+        ##rec_insert(root, splitLine[1:])
+        #print_nested(ident, root, splitLine[1:])
+        ##whole_root.append(root)    
+        ##whole_root.append(splitLine[1:])
+  
+read_output(urls)
+#print(whole_root)
